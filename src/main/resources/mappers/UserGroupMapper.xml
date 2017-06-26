@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lolibaba.daos.IUserGroupDao">
+
+    <resultMap id="BaseResultMap" type="com.lolibaba.models.UserGroup">
+        <id column="ID" property="id" jdbcType="INTEGER"/>
+        <result column="USER_ID" property="userId" jdbcType="INTEGER"/>
+        <result column="GROUP_ID" property="groupId" jdbcType="INTEGER"/>
+        <result column="USER_NAME" jdbcType="VARCHAR" property="userName"/>
+    </resultMap>
+
+    <sql id="userGroupColumns">
+        ID,USER_ID,GROUP_ID,USER_NAME
+    </sql>
+
+    <select id="findUserGroup" resultMap="BaseResultMap">
+        select
+        <include refid="userGroupColumns"/>
+        from
+        t_user_group
+    </select>
+</mapper>
